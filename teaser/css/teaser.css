@@ -9,13 +9,13 @@ body {
 
 h1 {
 	background: url('../images/foodnoms.png') 0 0 no-repeat;
-	width: 376px;
+	width: 380px;
 	height: 106px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	margin-top: -75px;
-	margin-left: -188px;
+	margin-left: -190px;
 	text-indent: -1000px;
 	text-overfow: hidden:
 	}
