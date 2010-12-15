@@ -1,0 +1,33 @@
+* {
+	margin: 0;
+	padding: 0;
+	}
+
+body {
+	background: #ff9000;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #fff;
+	}
+
+h1 {
+	background: url('../images/foodnoms.png') 0 0 no-repeat;
+	width: 380px;
+	height: 106px;
+	text-indent: -1000px;
+	text-overfow: hidden:
+	}
+
+#wrapper {
+	width: 380px;
+	height: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -190px;
+	}
+
+p.subhead {
+	text-align: center;
+	font-weight: bold;
+	}
