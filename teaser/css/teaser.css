@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+	}
+
+body {
+	background: #ff9000;
+	}
+
+h1 {
+	background: url('../images/foodnoms.png') 0 0 no-repeat;
+	width: 376px;
+	height: 106px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -75px;
+	margin-left: -188px;
+	text-indent: -1000px;
+	text-overfow: hidden:
+	}
