@@ -11,14 +11,14 @@ body {
 
 h1 {
 	background: url('../images/foodnoms.png') 0 0 no-repeat;
-	width: 380px;
-	height: 106px;
+	width: 386px;
+	height: 109px;
 	text-indent: -1000px;
-	text-overfow: hidden:
+	text-overfow: hidden;
 	}
 
 #wrapper {
-	width: 380px;
+	width: 386px;
 	height: auto;
 	position: absolute;
 	top: 50%;
