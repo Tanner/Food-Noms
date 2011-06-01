@@ -47,6 +47,10 @@ html {
      display: inline-block;
 }
 
+#navbar li.user {
+     float: right;
+}
+
 #navbar li a {
      display: inline-block;
      height: 30px;
