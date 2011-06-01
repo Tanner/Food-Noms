@@ -1,6 +1,9 @@
 from django.http import HttpResponse, Http404
 from noms.models import Restaurant, Nom
 
+def index(request):
+     return HttpResponse("This is the index.")
+
 def search(request):
      return HttpResponse("This is search.")
 

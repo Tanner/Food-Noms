@@ -5,6 +5,7 @@ from django.conf.urls.defaults import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+     (r'^$', 'noms.views.index'),
      (r'^noms/$', 'noms.views.search'),
      (r'^search/$', 'noms.views.search'),
      (r'^(?P<restaurant_id>\d+)/$', 'noms.views.restaurantDetail'),
