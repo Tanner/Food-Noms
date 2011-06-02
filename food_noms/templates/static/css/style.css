@@ -1,0 +1,102 @@
+* {
+     padding: 0;
+     margin: 0;
+}
+
+html {
+     background: #bbb;
+}
+
+#wrapper {
+     background: #ff9000;
+}
+
+#header {
+     background: #ff9000;
+     width: 990px;
+     height: 121px;
+     margin: 0 auto;
+     position: relative;
+}
+
+#header-img {
+     background: url('../images/foodnoms.png') top left no-repeat;
+     width: 990px;
+     height: 85px;
+     text-indent: -1000px;
+     text-overflow: hidden;
+     margin: 0 auto;
+     position: absolute;
+     top: 18px;
+     left: 0;
+}
+
+#navbar {
+     background: #f05023;
+     font-weight: bold;
+     font-family: 'Helvetica', 'Arial', sans-serif;
+     color: #fff;
+     height: 30px;
+}
+
+#navbar ul {
+     list-style: none;
+     width: 990px;
+     margin: 0 auto;
+     padding: 0px 0px;
+}
+
+#navbar li {
+     display: inline-block;
+}
+
+#navbar li.user {
+     float: right;
+}
+
+#navbar li a {
+     display: inline-block;
+     height: 30px;
+     line-height: 30px;
+     text-decoration: none;
+     color: #fff;
+     padding: 0px 25px;
+}
+
+#navbar li.active a {
+     color: #f05023;
+     background: #fff;
+}
+
+#navbar li a:hover {
+     color: #f05023;
+     background: #fff;
+}
+
+#bottom {
+     background: #bbb;
+}
+
+#content {
+     background: #fff;
+     margin: 0 auto;
+     width: 940px;
+     padding: 15px 25px;
+     font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+#content h1, h2, h3, h4, h5 {
+     padding: 0 0 2px 0;
+}
+
+#footer {
+     background: #f05023;
+     font-family: 'Helevitca', 'Arial', sans-serif;
+     font-weight: bold;
+     color: #fff;
+     height: 25px;
+     line-height: 25px;
+     width: 940px;
+     margin: 0 auto;
+     padding: 2px 25px;
+}

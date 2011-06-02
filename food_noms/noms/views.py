@@ -1,8 +1,11 @@
+from django.template import RequestContext, loader
 from django.http import HttpResponse, Http404
 from noms.models import Restaurant, Nom
 
 def index(request):
-     return HttpResponse("This is the index.")
+     t = loader.get_template('base_index.html')
+     c = RequestContext(request, {})
+     return HttpResponse(t.render(c))
 
 def search(request):
      return HttpResponse("This is search.")
