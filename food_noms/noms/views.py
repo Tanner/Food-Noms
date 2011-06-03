@@ -3,12 +3,14 @@ from django.http import HttpResponse, Http404
 from noms.models import Restaurant, Nom
 
 def index(request):
-     t = loader.get_template('base_index.html')
+     t = loader.get_template("base_index.html")
      c = RequestContext(request, {})
      return HttpResponse(t.render(c))
 
 def search(request):
-     return HttpResponse("This is search.")
+     t = loader.get_template("base_search.html")
+     c = RequestContext(request, {})
+     return HttpResponse(t.render(c))
 
 def restaurantDetail(request, restaurant_id):
      try:

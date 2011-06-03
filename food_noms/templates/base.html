@@ -1,8 +1,13 @@
+{% load tags %}
+
+{% url home as home %}
+{% url search as search %}
+
 <!DOCTYPE html>
 <html>
 <head>
      <title>{% block title %}Food Noms{% endblock %}</title>
-     <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}css/style.css">
+     <link rel="stylesheet" type="text/css" media="all" href="{{STATIC_URL}}css/style.css">
 </head>
 <body>
 
@@ -14,9 +19,8 @@
      </div>
      <div id="navbar">
           <ul>
-               <li class="active"><a href="#">Home</a></li>
-               <li><a href="#">Search</a></li>
-               <li><a href="#">About Us</a></li>
+               <li class="{% active request home %}"><a href="{{home}}">Home</a></li>
+               <li class="{% active request search %}"><a href="{{search}}">Search</a></li>
                <li class="user"><a href="#">Log-In</a></li>
                <li class="user"><a href="#">Register</a></li>
           </ul>

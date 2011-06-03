@@ -6,11 +6,10 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-     (r'^$', 'noms.views.index'),
-     (r'^noms/$', 'noms.views.search'),
-     (r'^search/$', 'noms.views.search'),
-     (r'^(?P<restaurant_id>\d+)/$', 'noms.views.restaurantDetail'),
-     (r'^(?P<restaurant_id>\d+)/(?P<nom_id>\d+)$', 'noms.views.nomDetail')
+     url(r'^$', 'noms.views.index', name='home'),
+     url(r'^search/$', 'noms.views.search', name='search'),
+     url(r'^(?P<restaurant_id>\d+)/$', 'noms.views.restaurantDetail', name='restaurant_detail'),
+     url(r'^(?P<restaurant_id>\d+)/(?P<nom_id>\d+)$', 'noms.views.nomDetail', name='nom_detail')
     # Examples:
     # url(r'^$', 'food_noms.views.home', name='home'),
     # url(r'^food_noms/', include('food_noms.foo.urls')),
