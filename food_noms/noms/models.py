@@ -11,4 +11,4 @@ class Nom(models.Model):
      name = models.CharField(max_length=150)
      
      def __unicode__(self):
-          return self.name + " at " + unicode(self.restaurant)
+          return self.name
