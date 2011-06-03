@@ -5,8 +5,6 @@ class Restaurant(models.Model):
 
      def __unicode__(self):
           return self.name
-     def __str__(self):
-          return __str__()
 
 class Nom(models.Model):
      restaurant = models.ForeignKey(Restaurant)
