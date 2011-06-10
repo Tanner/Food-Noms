@@ -21,3 +21,6 @@ class Response(models.Model):
 
      rate = models.IntegerField()
      freeResponse = models.CharField(max_length=1000)
+
+     def __unicode__(self):
+          return "Response %(id)d for %(rating)s" % {'id': self.id, 'rating': self.rating}
