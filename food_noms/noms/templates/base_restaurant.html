@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Food Noms - {{ restaurant.name }}{% endblock %}
+
+{% block content %}
+<h1>{{ restaurant.name }}</h1>
+
+{% if noms %}
+     <p>There are {{ noms|length }} noms at this restaurant.</p>
+     <ul>
+     {% for nom in noms %}
+          <li>{{ nom }}</li>
+     {% endfor %}
+     </ul>
+{% else %}
+     <p>No noms here. :(</p>
+{% endif %}
+{% endblock %}

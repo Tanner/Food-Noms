@@ -15,9 +15,13 @@ def search(request):
 def restaurantDetail(request, restaurant_id):
      try:
           r = Restaurant.objects.get(pk=restaurant_id)
+          noms = r.nom_set.all()
+
+          t = loader.get_template("base_restaurant.html")
+          c = RequestContext(request, {"restaurant": r, "noms": noms})
+          return HttpResponse(t.render(c))
      except Restaurant.DoesNotExist:
           raise Http404
-     return HttpResponse("You're looking at the restaurant detail of restaurant %s." % restaurant_id)
 
 def nomDetail(request, restaurant_id, nom_id):
      try:
