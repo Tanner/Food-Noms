@@ -6,6 +6,9 @@ class Restaurant(models.Model):
      def __unicode__(self):
           return self.name
 
+     def get_absolute_url(self):
+          return "/%i/" % self.id
+
 class Nom(models.Model):
      restaurant = models.ForeignKey(Restaurant)
      name = models.CharField(max_length=150)
