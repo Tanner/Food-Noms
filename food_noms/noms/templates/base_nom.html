@@ -4,4 +4,5 @@
 
 {% block content %}
 <h1>{{ nom.name }} at {{ nom.restaurant.name }}</h1>
+<p><a href="{{ nom.restaurant.get_absolute_url }}">Back to {{ nom.restaurant.name }}</a></p>
 {% endblock %}
