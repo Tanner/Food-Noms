@@ -26,7 +26,9 @@ def restaurantDetail(request, restaurant_id):
 def nomDetail(request, restaurant_id, nom_id):
      try:
           n = Nom.objects.get(pk=nom_id)
+          t = loader.get_template("base_nom.html")
+          c = RequestContext(request, {"nom": n})
+          return HttpResponse(t.render(c))
      except Nom.DoesNotExist:
           # Should we redirect to the restaurant page instead of 404?
           raise Http404
-     return HttpResponse("You're looking at the nom detail of nom %s." % nom_id)

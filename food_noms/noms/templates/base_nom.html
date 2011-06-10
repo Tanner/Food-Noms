@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block title %}Food Noms - {{ nom.name }}{% endblock %}
+
+{% block content %}
+<h1>{{ nom.name }} at {{ nom.restaurant.name }}</h1>
+{% endblock %}
