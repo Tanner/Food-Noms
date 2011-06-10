@@ -6,7 +6,11 @@
 <h1>{{ restaurant.name }}</h1>
 
 {% if noms %}
-     <p>There are {{ noms|length }} noms at {{ restaurant.name}}.</p>
+     {% if noms.length == 1 %}
+          <p>There is 1 nom at {{ restaurant.name}}.</p>
+     {% else %}
+          <p>There are {{ noms|length }} noms at {{ restaurant.name}}.</p>
+     {% endif %}
      <ul>
      {% for nom in noms %}
      <li><a href="{{ nom.get_absolute_url }}">{{ nom.name }}</a></li>
