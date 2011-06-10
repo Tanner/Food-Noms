@@ -7,9 +7,17 @@ class Rating(models.Model):
      def __unicode__(self):
           return "Rating %(id)d for %(nom)s" % {'id': self.id, 'nom': self.nom.name}
 
+class BaseQuestion(models.Model):
+     question = models.CharField(max_length=200)
+     hasRate = models.BooleanField()
+     hasFreeResponse = models.BooleanField()
+
+     def __unicode__(self):
+          return self.question;
+
 class Question(models.Model):
      rating = models.ForeignKey(Rating)
-     question = models.CharField(max_length=200)
+     baseQuestion = models.ForeignKey(BaseQuestion, related_name="+")
+
      rate = models.IntegerField()
-     hasFreeResponse = models.BooleanField()
      freeResponse = models.CharField(max_length=1000)
