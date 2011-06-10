@@ -12,3 +12,6 @@ class Nom(models.Model):
      
      def __unicode__(self):
           return self.name
+
+     def get_absolute_url(self):
+          return "/%i/%i/" % (self.restaurant.id, self.id)

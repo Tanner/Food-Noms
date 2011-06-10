@@ -7,7 +7,7 @@ urlpatterns = patterns('',
      url(r'^$', 'noms.views.index', name='home'),
      url(r'^search/$', 'noms.views.search', name='search'),
      url(r'^(?P<restaurant_id>\d+)/$', 'noms.views.restaurantDetail', name='restaurant_detail'),
-     url(r'^(?P<restaurant_id>\d+)/(?P<nom_id>\d+)$', 'noms.views.nomDetail', name='nom_detail'),
+     url(r'^(?P<restaurant_id>\d+)/(?P<nom_id>\d+)/$', 'noms.views.nomDetail', name='nom_detail'),
      
      url(r'^admin/', include(admin.site.urls)),
 )

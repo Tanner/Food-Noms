@@ -9,7 +9,7 @@
      <p>There are {{ noms|length }} noms at this restaurant.</p>
      <ul>
      {% for nom in noms %}
-          <li>{{ nom }}</li>
+     <li><a href="{{ nom.get_absolute_url }}">{{ nom.name }}</a></li>
      {% endfor %}
      </ul>
 {% else %}
