@@ -2,6 +2,7 @@
 {% block title %}Food Noms - Add Rating{% endblock %}
 
 {% block content %}
+<h1>Add Rating for {{ nom.name }} at {{ nom.restaurant }}</h1> 
 {% if form.errors %}
    <p style="color: red;">
        Please correct the error{{ form.errors|pluralize }} below.

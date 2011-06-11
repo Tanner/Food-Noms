@@ -24,9 +24,11 @@ def add(request, nom_id):
                return HttpResponse(t.render(c))
      else:
           form = AddForm(questions)
+
+     nom = Nom.objects.get(pk=nom_id)
      
      t = loader.get_template("base_add.html")
-     c = RequestContext(request, {"form": form})
+     c = RequestContext(request, {"form": form, "nom": nom})
      return HttpResponse(t.render(c))
 
 def delete(request, rating_id):
