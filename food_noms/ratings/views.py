@@ -5,7 +5,9 @@ from noms.models import *
 from ratings.add_form import AddForm
 
 def add(request, nom_id):
+     nom = Nom.objects.get(pk=nom_id)
      questions = Question.objects.all()
+
      if request.method == "POST":
           form = AddForm(questions, request.POST)
           if form.is_valid():
@@ -20,12 +22,10 @@ def add(request, nom_id):
                          Response.objects.create(rating=rating, question=question, rate=0, freeResponse=data[str(id)])
 
                t = loader.get_template("base_added.html")
-               c = RequestContext(request, {})
+               c = RequestContext(request, {"nom": nom})
                return HttpResponse(t.render(c))
      else:
           form = AddForm(questions)
-
-     nom = Nom.objects.get(pk=nom_id)
      
      t = loader.get_template("base_add.html")
      c = RequestContext(request, {"form": form, "nom": nom})

@@ -3,4 +3,5 @@
 
 {% block content %}
 <h1>Rating Added!</h1>
+<p>Back to <a href="{{ nom.get_absolute_url }}">{{ nom.name }}</a> at <a href="{{ nom.restaurant.get_absolute_url }}">{{ nom.restaurant }}</a>.</p>
 {% endblock %}

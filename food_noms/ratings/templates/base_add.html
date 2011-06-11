@@ -16,4 +16,5 @@
    </table>
    <input type="submit" value="Submit">
 </form>
+<p>Back to <a href="{{ nom.get_absolute_url }}">{{ nom.name }}</a> at <a href="{{ nom.restaurant.get_absolute_url }}">{{ nom.restaurant }}</a>.</p>
 {% endblock %}
