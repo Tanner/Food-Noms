@@ -6,4 +6,12 @@ def add(request, nom_id):
      return HttpResponse("Add a rating")
 
 def delete(request, rating_id):
-     return HttpResponse("Delete a rating")
+     try:
+          r = Rating.objects.get(pk=rating_id)
+          r.delete()
+          
+          t = loader.get_template("base_deleted.html")
+          c = RequestContext(request, {})
+          return HttpResponse(t.render(c))
+     except Rating.DoesNotExist:
+          raise Http404
