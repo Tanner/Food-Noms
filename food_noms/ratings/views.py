@@ -1,6 +1,7 @@
 from django.template import RequestContext, loader
 from django.http import HttpResponse, Http404
 from ratings.models import Rating, Question, Response
+from noms.models import *
 from ratings.add_form import AddForm
 
 def add(request, nom_id):
@@ -9,7 +10,16 @@ def add(request, nom_id):
           form = AddForm(questions, request.POST)
           if form.is_valid():
                data = form.cleaned_data
-               return HttpResponse("Rate created.")
+
+               rating = Rating.objects.create(nom=Nom.objects.get(pk=nom_id))
+               for question in questions:
+                    id = question.id
+                    if question.hasRate:
+                         Response.objects.create(rating=rating, question=question, rate=data[str(id)], freeResponse="")
+                    if question.hasFreeResponse:
+                         Response.objects.create(rating=rating, question=question, rate=0, freeResponse=data[str(id)])
+
+               return HttpResponse("Rate created."+str(data))
      else:
           form = AddForm(questions)
      

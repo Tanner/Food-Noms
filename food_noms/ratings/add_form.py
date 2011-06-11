@@ -6,7 +6,7 @@ class AddForm(forms.Form):
           super(AddForm, self).__init__(*args, **kwargs)
 
           for question in questions:
-               key = "question%d" % question.id
+               key = "%d" % question.id
                if question.hasRate:
                     CHOICES = []
                     for i in range(1, Response.rateMax + 1):
