@@ -20,6 +20,8 @@ class Response(models.Model):
      question = models.ForeignKey(Question, related_name="+")
 
      rate = models.IntegerField()
+     rateMax = 10;
+
      freeResponse = models.CharField(max_length=1000)
 
      def __unicode__(self):
