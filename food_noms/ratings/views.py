@@ -19,7 +19,9 @@ def add(request, nom_id):
                     if question.hasFreeResponse:
                          Response.objects.create(rating=rating, question=question, rate=0, freeResponse=data[str(id)])
 
-               return HttpResponse("Rate created."+str(data))
+               t = loader.get_template("base_added.html")
+               c = RequestContext(request, {})
+               return HttpResponse(t.render(c))
      else:
           form = AddForm(questions)
      
