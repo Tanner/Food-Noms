@@ -5,7 +5,13 @@ from ratings.add_form import AddForm
 
 def add(request, nom_id):
      questions = Question.objects.all()
-     form = AddForm(questions)
+     if request.method == "POST":
+          form = AddForm(questions, request.POST)
+          if form.is_valid():
+               data = form.cleaned_data
+               return HttpResponse("Rate created.")
+     else:
+          form = AddForm(questions)
      
      t = loader.get_template("base_add.html")
      c = RequestContext(request, {"form": form})
