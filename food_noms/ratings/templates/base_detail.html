@@ -13,4 +13,5 @@
      {% endif %}
      </p>
 {% endfor %}
+<p>Back to <a href="{{ rating.nom.get_absolute_url }}">{{ rating.nom.name }}</a> at <a href="{{ rating.nom.restaurant.get_absolute_url }}">{{ rating.nom.restaurant.name }}</a></p>
 {% endblock %}
