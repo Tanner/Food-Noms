@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Food Noms - Rating Detail{% endblock %}
+
+{% block content %}
+<h1>Rating for {{ rating.nom }}</h1>
+{% for response in responses %}
+     <p>{{ response.question }} - 
+     {% if response.question.hasRate %}
+          {{ response.rate }}
+     {% endif %}
+     {% if response.question.hasFreeResponse %}
+          {{ response.freeResponse }}
+     {% endif %}
+     </p>
+{% endfor %}
+{% endblock %}

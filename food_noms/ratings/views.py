@@ -4,6 +4,17 @@ from ratings.models import Rating, Question, Response
 from noms.models import *
 from ratings.add_form import AddForm
 
+def detail(request, rating_id):
+     try:
+          rating = Rating.objects.get(pk=rating_id)
+          responses = rating.response_set.all()
+
+          t = loader.get_template("base_detail.html")
+          c = RequestContext(request, {"rating": rating, "responses": responses})
+          return HttpResponse(t.render(c))
+     except Nom.DoesNotExist:
+          raise Http404
+
 def add(request, nom_id):
      nom = Nom.objects.get(pk=nom_id)
      questions = Question.objects.all()
