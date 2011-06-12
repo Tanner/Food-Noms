@@ -19,4 +19,4 @@ class Nom(models.Model):
 
      @models.permalink
      def get_absolute_url(self):
-          return ('noms.views.nomDetail', {}, {"restaurant_id": restaurant.id, "nom_id": self.id})
+          return ('noms.views.nomDetail', {}, {"restaurant_id": self.restaurant.id, "nom_id": self.id})
