@@ -4,6 +4,10 @@ from noms import models as nomModels
 class Rating(models.Model):
      nom = models.ForeignKey(nomModels.Nom)
 
+     @models.permalink
+     def get_absolute_url(self):
+          return ('ratings.views.detail', {}, {"rating_id": self.id})
+
      def __unicode__(self):
           return "Rating %(id)d for %(nom)s" % {'id': self.id, 'nom': self.nom.name}
 
