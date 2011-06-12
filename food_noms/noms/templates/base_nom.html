@@ -16,5 +16,7 @@
      <p>No ratings.</p>
 {% endif %}
 
+<p><a href="{% url ratings.views.add nom.id %}">Add a Rating</a></p>
+
 <p><a href="{{ nom.restaurant.get_absolute_url }}">Back to {{ nom.restaurant.name }}</a></p>
 {% endblock %}
