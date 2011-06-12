@@ -6,8 +6,9 @@ class Restaurant(models.Model):
      def __unicode__(self):
           return self.name
 
+     @models.permalink
      def get_absolute_url(self):
-          return "/%i/" % self.id
+          return ('noms.views.restaurantDetail', {}, {"restaurant_id": self.id})
 
 class Nom(models.Model):
      restaurant = models.ForeignKey(Restaurant)
@@ -16,5 +17,6 @@ class Nom(models.Model):
      def __unicode__(self):
           return self.name
 
+     @models.permalink
      def get_absolute_url(self):
-          return "/%i/%i/" % (self.restaurant.id, self.id)
+          return ('noms.views.nomDetail', {}, {"restaurant_id": restaurant.id, "nom_id": self.id})
