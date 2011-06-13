@@ -10,6 +10,8 @@ urlpatterns = patterns('',
      url(r'^(?P<restaurant_id>\d+)/(?P<nom_id>\d+)/$', 'noms.views.nomDetail', name='nom_detail'),
 
      (r'^rating/', include('food_noms.ratings.urls')),
+
+     (r'^accounts/', include('registration.urls')),
      
      url(r'^admin/', include(admin.site.urls)),
 )
