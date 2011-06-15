@@ -5,10 +5,10 @@
 <form method="post" action=".">
      {% csrf_token %}
      {{ form.as_p }}
-     <input type="submit" value="{% trans 'Log in' %}" />
+     <input type="submit" value="Log in" />
      <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
-<p>{% trans "Forgot password" %}? <a href="{% url auth_password_reset %}">{% trans "Reset it" %}</a>!</p>
-<p>{% trans "Not member" %}? <a href="{% url registration_register %}">{% trans "Register" %}</a>!</p>
+<p>Forgot password? <a href="{% url auth_password_reset %}">Reset it</a>!</p>
+<p>Not member? <a href="{% url registration_register %}">Register</a>!</p>
 {% endblock %}
