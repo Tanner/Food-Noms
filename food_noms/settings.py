@@ -129,7 +129,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'registration',
-    'account',
+    'userprofiles',
     'profiles',
     'noms',
     'ratings',
@@ -142,7 +142,7 @@ EMAIL_HOST_USER = 'tannersmith@foodnoms.com'
 EMAIL_HOST_PASSWORD = "coniurationem1991"
 EMAIL_PORT = 587
 
-AUTH_PROFILE_MODULE = "account.UserProfile"
+AUTH_PROFILE_MODULE = "userprofiles.UserProfile"
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
