@@ -2,6 +2,8 @@
 
 {% url home as home %}
 {% url search as search %}
+{% url auth_login as login %}
+{% url registration_register as register %}
 
 <!DOCTYPE html>
 <html>
@@ -21,8 +23,8 @@
           <ul>
                <li class="{% active request home %}"><a href="{{home}}">Home</a></li>
                <li class="{% active request search %}"><a href="{{search}}">Search</a></li>
-               <li class="user"><a href="#">Log-In</a></li>
-               <li class="user"><a href="#">Register</a></li>
+               <li class="user {% active request login %}"><a href="{{login}}">Log-In</a></li>
+               <li class="user {% active request register %}"><a href="{{register}}">Register</a></li>
           </ul>
      </div>
 
