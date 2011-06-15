@@ -1,1 +1,4 @@
 This is the README for Food Noms. Edit me. Fear me. Eat me.
+
+## Installed Packages
+* [django-registration](https://bitbucket.org/ubernostrum/django-registration/)
