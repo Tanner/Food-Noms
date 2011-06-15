@@ -12,6 +12,8 @@ urlpatterns = patterns('',
      (r'^rating/', include('food_noms.ratings.urls')),
 
      (r'^accounts/', include('registration.urls')),
+
+     (r'^profiles/', include('profiles.urls')),
      
      url(r'^admin/', include(admin.site.urls)),
 )
