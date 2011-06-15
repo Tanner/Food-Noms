@@ -141,6 +141,8 @@ EMAIL_HOST_USER = 'tannersmith@foodnoms.com'
 EMAIL_HOST_PASSWORD = "coniurationem1991"
 EMAIL_PORT = 587
 
+AUTH_PROFILE_MODULE = "account.UserProfile"
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.
