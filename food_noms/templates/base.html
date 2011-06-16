@@ -3,6 +3,7 @@
 {% url home as home %}
 {% url search as search %}
 {% url auth_login as login %}
+{% url auth_logout as logout %}
 {% url registration_register as register %}
 
 <!DOCTYPE html>
@@ -23,8 +24,13 @@
           <ul>
                <li class="{% active request home %}"><a href="{{home}}">Home</a></li>
                <li class="{% active request search %}"><a href="{{search}}">Search</a></li>
-               <li class="user {% active request login %}"><a href="{{login}}">Log-In</a></li>
-               <li class="user {% active request register %}"><a href="{{register}}">Register</a></li>
+               {% if user.is_authenticated %}
+                    <li class="user {% active request logout %}"><a href="{{logout}}">Log-Out</a></li>
+                    <li class="user"><a href="">Profile</a></li>
+               {% else %}
+                    <li class="user {% active request login %}"><a href="{{login}}">Log-In</a></li>
+                    <li class="user {% active request register %}"><a href="{{register}}">Register</a></li>
+               {% endif %}
           </ul>
      </div>
 
