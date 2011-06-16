@@ -1,7 +1,7 @@
 def create_profile(sender, instance, signal, created, **kwargs):
     """When user is created also create a matching profile."""
  
-    from bucket.models import Profile
+    from models import UserProfile
  
     if created:
         Profile(user = instance).save()
