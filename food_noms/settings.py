@@ -136,6 +136,9 @@ INSTALLED_APPS = (
 )
 
 ACCOUNT_ACTIVATION_DAYS = 2
+
+LOGIN_REDIRECT_URL = "/"
+
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'tannersmith@foodnoms.com'
