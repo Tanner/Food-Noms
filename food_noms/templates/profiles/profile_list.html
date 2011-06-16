@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Food Noms - All Profiles{% endblock %}
+
+{% block content %}
+<h1>List of Profiles</h1>
+<ul>
+{% for profile in object_list %}
+<li><a href="{% url profiles_profile_detail profile.user %}">{{ profile.user }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
