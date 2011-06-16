@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Food Noms - Login{% endblock %}
 
+{% url home as home %}
 {% block content %}
 <form method="post" action=".">
      {% csrf_token %}
      {{ form.as_p }}
      <input type="submit" value="Log in" />
-     <input type="hidden" name="next" value="{{ next }}" />
+     <input type="hidden" name="next" value="{{ home }}" />
 </form>
 
 <p>Forgot password? <a href="{% url auth_password_reset %}">Reset it</a>!</p>
