@@ -4,7 +4,8 @@
 {% url search as search %}
 {% url auth_login as login %}
 {% url auth_logout as logout %}
-{% url profiles_edit_profile as user_profile %}
+{% url profiles_profile_detail user as user_profile %}
+{% url profiles_edit_profile as edit_user_profile %}
 {% url registration_register as register %}
 
 <!DOCTYPE html>
@@ -27,7 +28,7 @@
                <li class="{% active request search %}"><a href="{{search}}">Search</a></li>
                {% if user.is_authenticated %}
                     <li class="user {% active request logout %}"><a href="{{logout}}">Log-Out</a></li>
-                    <li class="user {% active request user_profile %}"><a href="{{user_profile}}">Profile</a></li>
+                    <li class="user {% active request user_profile %} {% active request edit_user_profile %}"><a href="{{user_profile}}">Profile</a></li>
                {% else %}
                     <li class="user {% active request login %}"><a href="{{login}}">Log-In</a></li>
                     <li class="user {% active request register %}"><a href="{{register}}">Register</a></li>
