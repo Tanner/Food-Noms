@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
+from food_noms.userprofiles.forms import ProfileForm
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -13,6 +14,7 @@ urlpatterns = patterns('',
 
      (r'^accounts/', include('registration.urls')),
 
+     ('^profiles/edit', 'profiles.views.edit_profile', {'form_class': ProfileForm,}),
      (r'^profiles/', include('profiles.urls')),
      
      url(r'^admin/', include(admin.site.urls)),
