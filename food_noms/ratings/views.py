@@ -1,5 +1,6 @@
 from django.template import RequestContext, loader
 from django.http import HttpResponse, Http404
+from django.contrib.auth.decorators import login_required
 from ratings.models import Rating, Question, Response
 from noms.models import *
 from ratings.add_form import AddForm
@@ -15,6 +16,7 @@ def detail(request, rating_id):
      except Rating.DoesNotExist:
           raise Http404
 
+@login_required
 def add(request, nom_id):
      try:
           nom = Nom.objects.get(pk=nom_id)
@@ -45,6 +47,7 @@ def add(request, nom_id):
      except Nom.DoesNotExist:
           raise Http404
 
+@login_required
 def delete(request, rating_id):
      try:
           r = Rating.objects.get(pk=rating_id)
