@@ -4,6 +4,6 @@ def create_profile(sender, instance, signal, created, **kwargs):
     from models import UserProfile
  
     if created:
-        Profile(user = instance).save()
+        UserProfile(user = instance).save()
         # Do additional stuff here if needed, e.g.
         # create other required related records
