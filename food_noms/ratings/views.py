@@ -51,10 +51,16 @@ def add(request, nom_id):
 def delete(request, rating_id):
      try:
           r = Rating.objects.get(pk=rating_id)
-          r.delete()
+
+          if request.user == r.user:
+               r.delete()
           
-          t = loader.get_template("base_deleted.html")
-          c = RequestContext(request, {})
-          return HttpResponse(t.render(c))
+               t = loader.get_template("base_deleted.html")
+               c = RequestContext(request, {})
+               return HttpResponse(t.render(c))
+          else:
+               t = loader.get_template("base_permission_error.html")
+               c = RequestContext(request, {})
+               return HttpResponse(t.render(c))
      except Rating.DoesNotExist:
           raise Http404
