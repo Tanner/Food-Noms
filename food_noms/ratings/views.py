@@ -27,7 +27,7 @@ def add(request, nom_id):
                if form.is_valid():
                     data = form.cleaned_data
 
-                    rating = Rating.objects.create(nom=Nom.objects.get(pk=nom_id))
+                    rating = Rating.objects.create(nom=Nom.objects.get(pk=nom_id), user=request.user)
                     for question in questions:
                          id = question.id
                          if question.hasRate:
