@@ -1,8 +1,10 @@
 from django.db import models
+from django.contrib.auth import models as authModels
 from noms import models as nomModels
 
 class Rating(models.Model):
      nom = models.ForeignKey(nomModels.Nom)
+     user = models.ForeignKey(authModels.User, null=True)
 
      @models.permalink
      def get_absolute_url(self):
