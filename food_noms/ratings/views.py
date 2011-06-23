@@ -22,6 +22,11 @@ def add(request, nom_id):
           nom = Nom.objects.get(pk=nom_id)
           questions = Question.objects.all()
 
+          if not request.user.has_perm("ratings.add_rating"):
+               t = loader.get_template("base_permission_error.html")
+               c = RequestContext(request, {})
+               return HttpResponse(t.render(c))
+
           if request.method == "POST":
                form = AddForm(questions, request.POST)
                if form.is_valid():
@@ -52,7 +57,7 @@ def delete(request, rating_id):
      try:
           r = Rating.objects.get(pk=rating_id)
 
-          if request.user == r.user:
+          if request.user == r.user and request.user.has_perm("ratings.delete_rating"):
                r.delete()
           
                t = loader.get_template("base_deleted.html")
