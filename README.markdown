@@ -9,8 +9,10 @@ This is the README for Food Noms. Edit me. Fear me. Eat me.
 To install food noms, you must perform the required steps.
 
 0. Install [Python](http://www.python.org/) and [Django](https://www.djangoproject.com/).
-1. Install the required packages above on your system.
-2. You must now sync South up with the initial migration for **each** app. Run the following command in a terminal: `python manage.py migrate [application_name] 0001 --fake`
+1. Install the required packages above on your system. Generally [easy_install](http://pypi.python.org/pypi/setuptools) makes this real easy.
+2. Create the database and select **no** when prompted to create a superuser. This can be done by: `python manage.py syncdb`
+3. Run the command: `python manage.py migrate`
+4. Create a superuser. This can be done by: `python manage.py createsuperuser`
 3. You are done. Go home. Have a cookie.
 
 ## Using South
