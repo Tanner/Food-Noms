@@ -35,10 +35,10 @@ def add(request, nom_id):
                     rating = Rating.objects.create(nom=Nom.objects.get(pk=nom_id), user=request.user)
                     for question in questions:
                          id = question.id
-                         if question.hasRate:
-                              Response.objects.create(rating=rating, question=question, rate=data[str(id)], freeResponse="")
-                         if question.hasFreeResponse:
-                              Response.objects.create(rating=rating, question=question, rate=0, freeResponse=data[str(id)])
+                         if question.type == Question.QUESTION_TYPE_RATING:
+                              Response.objects.create(rating=rating, question=question, rate=data[str(id)])
+                         if question.type == Question.QUESTION_TYPE_FREE_RESPONSE:
+                              Response.objects.create(rating=rating, question=question, freeResponse=data[str(id)])
 
                     t = loader.get_template("base_added.html")
                     c = RequestContext(request, {"nom": nom})
