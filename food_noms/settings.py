@@ -134,7 +134,7 @@ INSTALLED_APPS = (
     'userprofiles',
     'profiles',
     'noms',
-    'ratings',
+    'reviews',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 2

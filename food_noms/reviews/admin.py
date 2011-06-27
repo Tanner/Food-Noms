@@ -1,4 +1,4 @@
-from ratings.models import * 
+from reviews.models import * 
 from django.contrib import admin
 
 class RatingResponseInline(admin.TabularInline):

@@ -1,9 +1,9 @@
 from django.template import RequestContext, loader
 from django.http import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
-from ratings.models import * 
+from reviews.models import * 
 from noms.models import *
-from ratings.add_form import AddForm
+from reviews.add_form import AddForm
 
 def detail(request, rating_id):
      try:
@@ -23,7 +23,7 @@ def add(request, nom_id):
           nom = Nom.objects.get(pk=nom_id)
           questions = Question.objects.all()
 
-          if not request.user.has_perm("ratings.add_rating"):
+          if not request.user.has_perm("reviews.add_rating"):
                t = loader.get_template("base_permission_error.html")
                c = RequestContext(request, {})
                return HttpResponse(t.render(c))
@@ -58,7 +58,7 @@ def delete(request, rating_id):
      try:
           r = Rating.objects.get(pk=rating_id)
 
-          if request.user == r.user and request.user.has_perm("ratings.delete_rating"):
+          if request.user == r.user and request.user.has_perm("reviews.delete_rating"):
                r.delete()
           
                t = loader.get_template("base_deleted.html")

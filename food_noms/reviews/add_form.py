@@ -1,5 +1,5 @@
 from django import forms
-from ratings.models import *
+from reviews.models import *
 
 class AddForm(forms.Form):
      def __init__(self, questions, *args, **kwargs):

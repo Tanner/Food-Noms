@@ -10,7 +10,7 @@ urlpatterns = patterns('',
      url(r'^(?P<restaurant_id>\d+)/$', 'noms.views.restaurantDetail', name='restaurant_detail'),
      url(r'^(?P<restaurant_id>\d+)/(?P<nom_id>\d+)/$', 'noms.views.nomDetail', name='nom_detail'),
 
-     (r'^rating/', include('food_noms.ratings.urls')),
+     (r'^review/', include('food_noms.reviews.urls')),
 
      (r'^accounts/', include('registration.urls')),
 
