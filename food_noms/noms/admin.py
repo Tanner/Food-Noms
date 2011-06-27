@@ -8,5 +8,8 @@ class NomInline(admin.TabularInline):
 class RestaurantAdmin(admin.ModelAdmin):
      inlines = [NomInline]
 
+class NomAdmin(admin.ModelAdmin):
+     list_display = ('__unicode__', 'restaurant')
+
 admin.site.register(Restaurant, RestaurantAdmin)
-admin.site.register(Nom)
+admin.site.register(Nom, NomAdmin)
