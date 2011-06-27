@@ -26,10 +26,10 @@ def restaurantDetail(request, restaurant_id):
 def nomDetail(request, restaurant_id, nom_id):
      try:
           n = Nom.objects.get(pk=nom_id)
-          ratings = n.rating_set.all()
+          reviews = n.review_set.all()
 
           t = loader.get_template("base_nom.html")
-          c = RequestContext(request, {"nom": n, "ratings": ratings})
+          c = RequestContext(request, {"nom": n, "reviews": reviews})
           return HttpResponse(t.render(c))
      except Nom.DoesNotExist:
           # Should we redirect to the restaurant page instead of 404?

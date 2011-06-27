@@ -5,18 +5,18 @@
 {% block content %}
 <h1>{{ nom.name }} at {{ nom.restaurant.name }}</h1>
 
-<h2>Ratings</h2>
-{% if ratings %}
+<h2>Reviews</h2>
+{% if reviews %}
      <ul>
-          {% for rating in ratings %}
-               <li><a href="{{ rating.get_absolute_url }}">Rating {{ rating.id }}</a></li>
+          {% for review in reviews %}
+          <li><a href="{{ review.get_absolute_url }}">Review {{ review.id }}</a></li>
           {% endfor %}
      </ul>
 {% else %}
-     <p>No ratings.</p>
+     <p>No reviews.</p>
 {% endif %}
 
-<p><a href="{% url ratings.views.add nom.id %}">Add a Rating</a></p>
+<p><a href="{% url reviews.views.add nom.id %}">Add a Review</a></p>
 
 <p><a href="{{ nom.restaurant.get_absolute_url }}">Back to {{ nom.restaurant.name }}</a></p>
 {% endblock %}

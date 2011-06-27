@@ -2,16 +2,16 @@ from django.db import models
 from django.contrib.auth import models as authModels
 from noms import models as nomModels
 
-class Rating(models.Model):
+class Review(models.Model):
      nom = models.ForeignKey(nomModels.Nom)
      user = models.ForeignKey(authModels.User, null=True)
 
      @models.permalink
      def get_absolute_url(self):
-          return ('reviews.views.detail', {}, {"rating_id": self.id})
+          return ('reviews.views.detail', {}, {"review_id": self.id})
 
      def __unicode__(self):
-          return "Rating %(id)d for %(nom)s" % {'id': self.id, 'nom': self.nom.name}
+          return "Review %(id)d for %(nom)s" % {'id': self.id, 'nom': self.nom.name}
 
 class Question(models.Model):
      QUESTION_TYPE_RATING = "RATING"
@@ -29,11 +29,11 @@ class Question(models.Model):
           return self.question;
 
 class Response(models.Model):
-     rating = models.ForeignKey(Rating)
+     review = models.ForeignKey(Review)
      question = models.ForeignKey(Question, related_name="+")
 
      def __unicode__(self):
-          return "Response %(id)d for %(rating)s" % {'id': self.id, 'rating': self.rating}
+          return "Response %(id)d for %(review)s" % {'id': self.id, 'review': self.review}
 
      class Meta:
           abstract = True

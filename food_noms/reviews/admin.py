@@ -18,11 +18,11 @@ class QuestionAdmin(admin.ModelAdmin):
      list_filter = ('type',)
 
 class RatingResponseAdmin(admin.ModelAdmin):
-     list_display = ('__unicode__', 'rating', 'question', 'rate')
+     list_display = ('__unicode__', 'review', 'question', 'rate')
      list_filter = ('question',)
 
 class FreeResponseAdmin(admin.ModelAdmin):
-     list_display = ('__unicode__', 'rating', 'question', 'freeResponse')
+     list_display = ('__unicode__', 'review', 'question', 'freeResponse')
      list_filter = ('question',)
 
 admin.site.register(Rating, RatingAdmin)
