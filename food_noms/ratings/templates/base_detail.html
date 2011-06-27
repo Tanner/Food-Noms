@@ -3,16 +3,14 @@
 
 {% block content %}
 <h1>Rating for {{ rating.nom }}</h1>
-{% for response in responses %}
-     <p>{{ response.question }} - 
-     {% if response.question.hasRate %}
-          {{ response.rate }}
-     {% endif %}
-     {% if response.question.hasFreeResponse %}
-          {{ response.freeResponse }}
-     {% endif %}
-     </p>
+
+{% for response in rate_responses %}
+     <p>{{ response.question }} - {{ response.rate }}</p>
 {% endfor %}
+{% for response in free_responses %}
+     <p>{{ response.question }} - {{ response.freeResponse }}</p>
+{% endfor %}
+
 {% if user.is_authenticated and user == rating.user %}
      <p><a href="{% url ratings.views.delete rating.id %}">Delete</a></p>
 {% endif %}

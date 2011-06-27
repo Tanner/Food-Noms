@@ -1,17 +1,18 @@
 from django.template import RequestContext, loader
 from django.http import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
-from ratings.models import Rating, Question, Response
+from ratings.models import * 
 from noms.models import *
 from ratings.add_form import AddForm
 
 def detail(request, rating_id):
      try:
           rating = Rating.objects.get(pk=rating_id)
-          responses = rating.response_set.all()
+          rateResponses = rating.ratingresponse_set.all()
+          freeResponses = rating.freeresponse_set.all()
 
           t = loader.get_template("base_detail.html")
-          c = RequestContext(request, {"rating": rating, "responses": responses})
+          c = RequestContext(request, {"rating": rating, "rate_responses": rateResponses, "free_responses": freeResponses})
           return HttpResponse(t.render(c))
      except Rating.DoesNotExist:
           raise Http404
