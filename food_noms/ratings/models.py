@@ -29,13 +29,25 @@ class Question(models.Model):
           return self.question;
 
 class Response(models.Model):
-     RESPONSE_MAX_RATING = 10;
-
      rating = models.ForeignKey(Rating)
      question = models.ForeignKey(Question, related_name="+")
 
-     rate = models.IntegerField(blank=True, null=True)
+     def __unicode__(self):
+          return "Response %(id)d for %(rating)s" % {'id': self.id, 'rating': self.rating}
+
+     class Meta:
+          abstract = True
+
+class FreeResponse(Response):
      freeResponse = models.CharField(max_length=1000, blank=True, null=True)
 
      def __unicode__(self):
-          return "Response %(id)d for %(rating)s" % {'id': self.id, 'rating': self.rating}
+          return "Free " + Response.__unicode__(self)
+
+class RatingResponse(Response):
+     RESPONSE_MAX_RATING = 10;
+
+     rate = models.IntegerField(blank=True, null=True)
+
+     def __unicode__(self):
+          return "Rating " + Response.__unicode__(self)
