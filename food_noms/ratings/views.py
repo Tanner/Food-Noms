@@ -37,9 +37,9 @@ def add(request, nom_id):
                     for question in questions:
                          id = question.id
                          if question.type == Question.QUESTION_TYPE_RATING:
-                              Response.objects.create(rating=rating, question=question, rate=data[str(id)])
+                              RatingResponse.objects.create(rating=rating, question=question, rate=data[str(id)])
                          if question.type == Question.QUESTION_TYPE_FREE_RESPONSE:
-                              Response.objects.create(rating=rating, question=question, freeResponse=data[str(id)])
+                              FreeResponse.objects.create(rating=rating, question=question, freeResponse=data[str(id)])
 
                     t = loader.get_template("base_added.html")
                     c = RequestContext(request, {"nom": nom})
