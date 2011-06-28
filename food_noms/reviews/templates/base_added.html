@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Food Noms - Rating Added{% endblock %}
+{% block title %}Food Noms - Review Added{% endblock %}
 
 {% block content %}
-<h1>Rating Added!</h1>
+<h1>Review Added!</h1>
 <p>Back to <a href="{{ nom.get_absolute_url }}">{{ nom.name }}</a> at <a href="{{ nom.restaurant.get_absolute_url }}">{{ nom.restaurant }}</a>.</p>
 {% endblock %}

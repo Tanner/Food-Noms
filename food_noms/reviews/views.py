@@ -7,7 +7,7 @@ from reviews.add_form import AddForm
 
 def detail(request, review_id):
      try:
-          review = Rating.objects.get(pk=review_id)
+          review = Review.objects.get(pk=review_id)
           rateResponses = review.ratingresponse_set.all()
           freeResponses = review.freeresponse_set.all()
 
@@ -68,5 +68,5 @@ def delete(request, review_id):
                t = loader.get_template("base_permission_error.html")
                c = RequestContext(request, {})
                return HttpResponse(t.render(c))
-     except Rating.DoesNotExist:
+     except Review.DoesNotExist:
           raise Http404
