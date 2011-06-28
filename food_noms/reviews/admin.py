@@ -9,7 +9,7 @@ class FreeResponseInline(admin.TabularInline):
      model = FreeResponse
      extra = 0
 
-class RatingAdmin(admin.ModelAdmin):
+class ReviewAdmin(admin.ModelAdmin):
      list_display = ('__unicode__', 'nom', 'user')
      inlines = [RatingResponseInline, FreeResponseInline];
 
@@ -25,7 +25,7 @@ class FreeResponseAdmin(admin.ModelAdmin):
      list_display = ('__unicode__', 'review', 'question', 'freeResponse')
      list_filter = ('question',)
 
-admin.site.register(Rating, RatingAdmin)
+admin.site.register(Review, ReviewAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(RatingResponse, RatingResponseAdmin)
 admin.site.register(FreeResponse, FreeResponseAdmin)
